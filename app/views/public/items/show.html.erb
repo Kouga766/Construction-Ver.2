@@ -154,38 +154,49 @@
 
 
 
-    <div class="mt-4">
+    <div class="col-md-8">
       <p>
-      <% @reviews.each do |review| %>
       <table>
+      <% @reviews.each do |review| %>
 
+          <tr>
+            <th width="30%" class="p-3 mb-2 bg-light text-dark"><%= review.customer.name %>さんのレビュー</th>
+            <th>
+              <div class="detail-value", id="star-comf-<%= review.id %>"></div>
+            </th> <%# id要素の書き方がポイント %>
+          </tr>
 
-      <tr>
-      <th width="17%" class="p-3 mb-2 bg-light text-dark"><%= review.customer.name %>さんのレビュー</th>
-      <th class="p-3 mb-2 bg-light text-dark"><%= review.name %></th>
-      </tr>
+          <tr>
+            <td align="center"><%= review.name %></td>
+            <td><%= review.comment %></td>
+          </tr>
 
-      <tr>
-      <td align="center">　内容：</td>
-      <td><%= review.comment %></td>
-      </tr>
+          <tr>
+            <td align="center">
+              <% if (current_customer != nil )&&(review.customer_id == current_customer.id) %>
+              <div>
+                <%= link_to edit_public_item_review_path(id:review.id,item_id:@item.id),data: {"turbolinks" => false}, class: "btn btn-success" do%>編集する<% end %>
+              </div>
+              <% end %>
+            </td>
+            <td><%= attachment_image_tag(review, :image, :size => '300x210') %></td>
+          </tr>
 
-      <tr>
-      <td align="center"></td>
-      <td width="1000" ><%= attachment_image_tag(review, :image, :size => '300x210') %></td>
-      </tr>
-
+          <script>
+            $('#star-comf-<%= review.id %>').raty({      //.idでどの評価であるかを取得
+            size: 38,
+            starOff:  '<%= asset_path('star-off.png') %>',
+            starOn : '<%= asset_path('star-on.png') %>',
+            starHalf: '<%= asset_path('star-half.png') %>',
+            half: true,
+            readOnly: true,                             //readOnlyオプションで読み込み専用とする。編集できない。
+            score: <%= review.make %>,              //scoreオプションで評価内容を取得
+            });
+          </script>
+      <% end %>
       </table>
 
 
-
-        <% if (current_customer != nil )&&(review.customer_id == current_customer.id) %>
-          <div style="text-align: right">
-            <%= link_to edit_public_item_review_path(id:review.id,item_id:@item.id),data: {"turbolinks" => false}, class: "btn btn-success" do%>編集する<% end %>
-
-          </div>
-        <% end %>
-      <% end %>
 
       <% if current_customer %>
       <div style="text-align: right" class="mt-4">
@@ -200,6 +211,3 @@
 </div>
 
 
-
-  </div>
-</div>
