@@ -190,7 +190,7 @@
             starHalf: '<%= asset_path('star-half.png') %>',
             half: true,
             readOnly: true,                             //readOnlyオプションで読み込み専用とする。編集できない。
-            score: <%= review.make %>,              //scoreオプションで評価内容を取得
+            score: <%= (review.make+review.appearance+review.configuration+review.precision+review.price)/5 %>,
             });
           </script>
       <% end %>
