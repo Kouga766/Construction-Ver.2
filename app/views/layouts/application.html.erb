@@ -5,64 +5,28 @@
     <%= favicon_link_tag 'icon1.png' %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script src=" https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
     <%= render 'layouts/raty' %>
-
   </head>
 
-  <body class="h-100">
+  <body>
+    <% if customer_signed_in? %>
+      <div id="container">
+        <div id="cover"></div>
+        <div id="mask" class="hidden"></div>
+        <aside id="side_area">
+          <%= render 'layouts/sidemenu' %>
+        </aside>
+        <main id="main_area">
 
-         <nav class="navbar navbar-default">
-        <div class="container-fluid">
-          <div class="navbar-header">
-          <%= link_to root_path do %>
-          <%= image_tag"Rogo.png",:size => '287x125' %>
-          <% end %>
+          <%= yield %>
 
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNavDropdown" style="display:flex; flex-flow: column;">
-            <div style="margin: 0 0 0 auto;">
-              <%= render 'layouts/sidemenu' %>
-
-
-
-            </div>
-            <% if admin_signed_in? %>
-            <div style="margin: 0 0 0 auto;">
-              <%= form_tag do %>
-              <%= text_field_tag :search %>
-              <%= submit_tag 'Search', :name => nil %>
-            　<% end %>
-
-            </div>
-            <% end %>
-          </div>
-        </div>
-        </div>
-      </nav>
-    <p><%= notice %></p>
-
-    <main class="h-75">
-
-    <%= yield %>
-    </main>
-    <!--<footer>-->
-    <!-- <div class="w-100 border border-primary-black">-->
-    <!-- </div>-->
-    <!--</footer>-->
-  </body>
-  <footer>
-    <div class="container mt-5">
-      <div class="row">
-        <div class="mx-auto">
-          <p></p>
-        </div>
+        </main>
       </div>
-    </div>
-  </footer>
+      <% else %>
+      <%= yield %>
+    <% end %>
+  </body>
 </html>

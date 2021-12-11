@@ -1,59 +1,55 @@
-<ul class="navbar-nav ml-auto">
-
-<% if customer_signed_in? %>
-                  <li>
-                   <th>ようこそ、<%= current_customer.name %>さん！</th>
-                  </li>
-                  <li>
-                    <%= link_to image_tag("calendar.png", class:"image_switch", :size =>'120x50'), public_calendars_path, data: {"turbolinks" => false}%>
-                  </li>
-                  <li>
-                    <%= link_to image_tag("question.png", class:"image_switch", :size =>'120x50'), public_questions_path, data: {"turbolinks" => false} %>
-                  </li>
-                  <li>
-                    <%= link_to image_tag("item.png", class:"image_switch", :size =>'120x50'), public_items_path, data: {"turbolinks" => false} %>
-                  </li>
-                  <li>
-                    <%= link_to image_tag("mypage.png", class:"image_switch",:size =>'120x50'), public_customers_path, data: {"turbolinks" => false} %>
-                  </li>
-                  <li>
-                    <%= link_to image_tag("logout.png", class:"image_switch", :size =>'120x50'), destroy_customer_session_path, method: :delete, data: {"turbolinks" => false}%>
-                  </li>
-                <% elsif admin_signed_in? %>
-
-                  <li>
-                    <%= link_to "新作カレンダー", public_calendars_path, class: "btn btn-outline-dark" %>
-                  </li>
-                  <li>
-                    <%= link_to "会員一覧", admin_customers_path, class: "btn btn-outline-dark" %>
-                  </li>
-                  <li>
-                    <%= link_to "プラモデル一覧", admin_items_path, class: "btn btn-outline-dark" %>
-                  </li>
-                  <li>
-                    <%= link_to "ジャンル一覧", admin_genres_path, class: "btn btn-outline-dark" %>
-                  </li>
-                  <li>
-                    <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn btn-outline-dark" %>
-                  </li>
-
-                <% else %>
-                  <li>
-                    <%= link_to image_tag("calendar.png", class:"image_switch", :size =>'120x50'), public_calendars_path, data: {"turbolinks" => false}%>
-                  </li>
-                  <li>
-                    <%= link_to image_tag("question.png", class:"image_switch", :size =>'120x50'), public_questions_path, data: {"turbolinks" => false} %>
-                  </li>
-                  <li>
-                    <%= link_to image_tag("item.png", class:"image_switch", :size =>'120x50'), public_items_path, data: {"turbolinks" => false} %>
-                  </li>
-                  <li>
-                    <%= link_to image_tag("Shin.png", class:"image_switch", :size =>'120x50'), new_customer_registration_path, data: {"turbolinks" => false} %>
-                  </li>
-                  <li>
-                    <%= link_to image_tag("login.png", class:"image_switch", :size =>'120x50'), new_customer_session_path, data: {"turbolinks" => false} %>
-                  </li>
-
-              <% end %>
-
-              </ul>
+<div class="navigation">
+  <%= link_to root_path, class: "site_logo_link" do %>
+    <img src="assets/images/Rogo.png" alt="サイトロゴ" class="site_logo">
+  <% end %>
+  <ul class="side_menu">
+    <li class="side_menu__list">
+      <%= link_to public_customers_path(current_customer), class: "side_menu__link" do %>
+        <span class="icon"><ion-icon name="person-outline"></ion-icon></span>
+        <span class="title">マイページ</span>
+      <% end %>
+    </li>
+    <li class="side_menu__list">
+      <%= link_to public_calendars_path(current_customer), class: "side_menu__link" do %>
+        <span class="icon"><ion-icon name="megaphone-outline"></ion-icon></span>
+        <span class="title">新着カレンダー</span>
+      <% end %>
+    </li>
+    <!--<li class="side_menu__list hidden">-->
+    <!--  <%#= link_to messages_path, class: "side_menu__link" do %>-->
+    <!--    <span class="icon"><ion-icon name="chatbubbles-outline"></ion-icon></span>-->
+    <!--    <span class="title">メッセージ</span>-->
+    <!--  <%# end %>-->
+    <!--</li>-->
+    <!--<li class="side_menu__list hidden">-->
+    <!--  <%#= link_to notifications_path, class: "side_menu__link" do %>-->
+    <!--    <span class="icon"><ion-icon name="notifications-outline" class="notice_icon <%#= @unread %>"></ion-icon></span>-->
+    <!--    <span class="title">通知</span>-->
+    <!--  <# end %>-->
+    <!--</li>-->
+    <li class="side_menu__list">
+      <%= link_to public_questions_path, class: "side_menu__link" do %>
+        <span class="icon"><ion-icon name="calendar-outline"></ion-icon></span>
+        <span class="title">質問箱</span>
+      <% end %>
+    </li>
+    <li class="side_menu__list">
+      <%= link_to public_items_path, class: "side_menu__link" do %>
+        <span class="icon"><ion-icon name="calendar-outline"></ion-icon></span>
+        <span class="title">プラモデル一覧</span>
+      <% end %>
+    </li>
+    <li class="side_menu__list">
+      <%= link_to public_about_path, class: "side_menu__link" do %>
+        <span class="icon"><ion-icon name="calendar-outline"></ion-icon></span>
+        <span class="title">プラモデル店</span>
+      <% end %>
+    </li>
+    <!--<li class="side_menu__list">-->
+    <!--  <%#= link_to setting_path, class: "side_menu__link" do %>-->
+    <!--    <span class="icon"><ion-icon name="settings-outline"></ion-icon></span>-->
+    <!--    <span class="title">設定</span>-->
+    <!--  <%# end %>-->
+    <!--</li>-->
+  </ul>
+</div>

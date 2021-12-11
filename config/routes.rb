@@ -41,6 +41,7 @@ root to: 'public/homes#top'
 
     # HomesController関連
     root to: "homes#top"
+    get  '/home'  => 'homes#home'
     get  "/about" => "homes#about"
     # /HomesController関連
 

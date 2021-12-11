@@ -1,132 +1,133 @@
-/******************************************************************
+// /******************************************************************
 
-Stylesheet: サイドメニュー関連のCSS
+// Stylesheet: サイドメニュー関連のCSS
 
-******************************************************************/
-.navigation {
-  width: 100%;
-  height: 100%;
-  border-right: 12px solid $cBase;
-  overflow-x: hidden;
+// ******************************************************************/
+// .navigation {
+//   width: 100%;
+//   height: 100%;
+//   border-right: 12px solid $cBase;
+//   overflow-x: hidden;
 
-  & .site_logo_link {
-    display: flex;
-    justify-content: center;
-    margin-top: 3vh;
-  }
 
-  & .site_logo {
-    width: 20vh;
-  }
+//   & .site_logo_link {
+//     display: flex;
+//     justify-content: center;
+//     margin-top: 3vh;
+//   }
 
-  & .side_menu {
-    padding-top: 3vh;
+//   & .site_logo {
+//     width: 20vh;
+//   }
 
-    & .hidden {
-      display: none;
-    }
+//   & .side_menu {
+//     padding-top: 3vh;
 
-    &__list {
-      list-style: none;
-      width: 100%;
-      border-radius: 20px 0 0 20px;
-      padding-left: 8px;
-    }
-    &__link {
-      position: relative;
-      display: flex;
-      width: 100%;
-      text-decoration: none;
-      color: #000;
-      &:hover {
-        border-radius: 15px;
-        background: rgba(0, 0, 0, .2);
-      }
-      &.active {
-        border-radius: 20px 0 0 20px;
-        background-color: $cBase;
-        color: #fff;
-        fill: #fff;
+//     & .hidden {
+//       display: none;
+//     }
 
-        &:before {
-          content: '';
-          position: absolute;
-          top: -30px;
-          right: 0;
-          width: 30px;
-          height: 30px;
-          border-radius: 50%;
-          box-shadow: 15px 15px 0 $cBase;
-        }
-        &:after {
-          content: '';
-          position: absolute;
-          bottom: -30px;
-          right: 0;
-          width: 30px;
-          height: 30px;
-          border-radius: 50%;
-          box-shadow: 15px -15px 0 $cBase;
-        }
-      }
-    }
-  }
+//     &__list {
+//       list-style: none;
+//       width: 100%;
+//       border-radius: 20px 0 0 20px;
+//       padding-left: 8px;
+//     }
+//     &__link {
+//       position: relative;
+//       display: flex;
+//       width: 100%;
+//       text-decoration: none;
+//       color: #000;
+//       &:hover {
+//         border-radius: 15px;
+//         background: rgba(0, 0, 0, .2);
+//       }
+//       &.active {
+//         border-radius: 20px 0 0 20px;
+//         background-color: $cBase;
+//         color: #fff;
+//         fill: #fff;
 
-  & .icon {
-    position: relative;
-    display: block;
-    min-width: 60px;
-    height: 60px;
-    line-height: 70px;
-    text-align: center;
-  }
+//         &:before {
+//           content: '';
+//           position: absolute;
+//           top: -30px;
+//           right: 0;
+//           width: 30px;
+//           height: 30px;
+//           border-radius: 50%;
+//           box-shadow: 15px 15px 0 $cBase;
+//         }
+//         &:after {
+//           content: '';
+//           position: absolute;
+//           bottom: -30px;
+//           right: 0;
+//           width: 30px;
+//           height: 30px;
+//           border-radius: 50%;
+//           box-shadow: 15px -15px 0 $cBase;
+//         }
+//       }
+//     }
+//   }
 
-  & .icon_svg {
-    line-height: 60px;
-  }
+//   & .icon {
+//     position: relative;
+//     display: block;
+//     min-width: 60px;
+//     height: 60px;
+//     line-height: 70px;
+//     text-align: center;
+//   }
 
-  & .notice_icon {
-    &.read {
-      &:before {
-        display: none;
-      }
-    }
-    &:before {
-      @extend .font-md;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: absolute;
-      content: "";
-      min-width: 13px;
-      height: 13px;
-      box-sizing: border-box;
-      padding: 4px;
-      font-weight: bold;
-      background-color: #ef5350;
-      border: 1px solid #fff;
-      border-radius: 10px;
-      top: 0;
-      right: 0;
-      z-index: 1;
-    }
-  }
+//   & .icon_svg {
+//     line-height: 60px;
+//   }
 
-  & ion-icon {
-    @extend .font-lg;
-    z-index: 1;
-  }
+//   & .notice_icon {
+//     &.read {
+//       &:before {
+//         display: none;
+//       }
+//     }
+//     &:before {
+//       @extend .font-md;
+//       display: flex;
+//       justify-content: center;
+//       align-items: center;
+//       position: absolute;
+//       content: "";
+//       min-width: 13px;
+//       height: 13px;
+//       box-sizing: border-box;
+//       padding: 4px;
+//       font-weight: bold;
+//       background-color: #ef5350;
+//       border: 1px solid #fff;
+//       border-radius: 10px;
+//       top: 0;
+//       right: 0;
+//       z-index: 1;
+//     }
+//   }
 
-  & .title {
-    display: block;
-    padding-left: 10px;
-    height: 60px;
-    line-height: 60px;
-    white-space: nowrap;
-  }
+//   & ion-icon {
+//     @extend .font-lg;
+//     z-index: 1;
+//   }
 
-  svg {
-    min-width: 24px;
-    height: 24px;
-  }
-}
+//   & .title {
+//     display: block;
+//     padding-left: 10px;
+//     height: 60px;
+//     line-height: 60px;
+//     white-space: nowrap;
+//   }
+
+//   svg {
+//     min-width: 24px;
+//     height: 24px;
+//   }
+// }
