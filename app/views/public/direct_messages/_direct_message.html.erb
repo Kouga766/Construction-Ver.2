@@ -1,0 +1,33 @@
+<div class="<%= direct_message.id %>_content">
+    <div class="">
+        
+        <b>　<%= direct_message.content %>　</b>
+       
+    </div>
+    <br>
+    
+    <h9 style="color: #4169e1;"><%= direct_message.created_at.strftime("%Y/%m/%d %H:%M") %></h9>
+    <br><br>
+</div>
+
+
+<!-- メッセージの表示位置を指定する -->
+<script>
+    //メッセージのユーザーidを取ってくる
+    var direct_message = <%= direct_message.customer.id %>;
+    //id="current_customer"の内容を取得
+    var dm_customer = document.getElementById('current_customer');
+    //dm_customerのdata-idを取得する
+    var current_customer = dm_customer.getAttribute('data-id')
+    
+    if(String(direct_message) == String(current_customer)){
+        //dm_customerがログインユーザーであれば右に表示する
+      $('p.' + <%= direct_message.id %> + '_icon').remove();
+      $('div.' + <%= direct_message.id %> + '_content').css('text-align', 'right');
+      $('div.' + <%= direct_message.id %> + '_content div').addClass("balloon1-right");
+    }else{
+        //dm_customerがチャット相手であれば左に表示する
+      $('p.' + <%= direct_message.id %> + '_icon').css('text-align', 'left');
+      $('div.' + <%= direct_message.id %> + '_content div').addClass("balloon1-left");
+    }
+</script>

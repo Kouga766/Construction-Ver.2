@@ -1,0 +1,46 @@
+    <h2>メッセージ一覧</h2>
+    
+        <table class="table">
+            <thead>
+                <tr>
+                    <th class="text-center">ユーザー名</th>
+                    <th class="text-center">メッセージ</th>
+                    <th class="text-center">最終更新日</th>
+                    <th class="text-center">オンライン</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @anotherEntries.each do |e| %>
+                <tr>
+                    <td class="text-center" width="25%">
+                        <%= link_to public_room_path(e.room.id) do %>
+                            <%= e.customer.name %>
+                        <% end %>
+                    </td>
+                    <td class="text-center" width="25%">
+                       <!-- 最新メッセージ内容の最初の7文字を表示する -->
+                        <% if DirectMessage.find_by(id: e.room.direct_message_ids.last) != nil %>
+                            <% dm = DirectMessage.find_by(id: e.room.direct_message_ids.last).content %>
+                            <%= truncate(dm, length: 10) %>
+                        <% end %>
+                    </td>
+                    <td class="text-center" width="25%">
+                        <label style="color: #C0C0C0;"><%= e.updated_at.strftime("%Y/%m/%d %H:%M") %></label>
+                    </td>
+                    <td class="text-center" width="25%">
+                        <label id="appearance_online_<%= e.customer.id %>" style="color: blue; display:none;">ONLINE</label>
+                        <label id="appearance_offline_<%= e.customer.id %>" style="color: grey;">OFFLINE</label>
+                        <% if e.customer.online == "on" %>
+                            <!-- 画面の初期表示時に動くコード（リアルタイム制御はassets/javascripts/channels/apparance.coffeeに委託） -->
+                            <script type="text/javascript">
+                                $("#appearance_offline_" + <%= e.customer.id %>).hide(); // 相手がオフラインの時のみ動くコード
+                                $("#appearance_online_" + <%= e.customer.id %>).show(); // 相手がオフラインの時のみ動くコード
+                            </script>
+                        <% end %>
+                    </td>
+                </tr>
+                <% end %>
+            </tbody>
+        </table>
+    
+    <%= link_to public_customers_path,data: {"turbolinks" => false}, class: "btn btn-success" do%>相手を選ぶ<% end %>
