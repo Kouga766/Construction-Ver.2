@@ -87,8 +87,8 @@ gem 'chart-js-rails', '~> 0.1.4' #=> 追加
 gem 'simple_calendar', '~> 2.0'
 
 gem 'dotenv-rails'
-# group :production do
-#   gem 'mysql2'
-# end
+group :production do
+  gem 'mysql2'
+end
 
 gem 'bootstrap-sass', '~> 3.3.4'
