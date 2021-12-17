@@ -1,0 +1,43 @@
+<p id="notice"></p>
+
+<div>
+  <div class="container">
+    <div class="row">
+
+      <div class="col-sm-3">
+        <h4 style="background-color: #d3d3d3; display:inline;">　customers一覧　</h4>
+
+      </div>
+      <div class="col-sm-6">
+
+      </div>
+      <div class="col-sm-3">
+
+      </div>
+    </div>
+  </div>
+
+  <!--↑　隙間明け-->
+  <br></br>
+  
+  <table class="table">
+
+    <tr>
+      <th class="p-3 mb-2 bg-light text-dark">会員ID</th>
+      <th class="p-3 mb-2 bg-light text-dark">ユーザー名</th>
+    </tr>
+
+    <% @customers.each do |c| %>
+      
+      <% if c.id != current_customer.id %>
+        <tr>
+        <td><%= c.id %></td>
+        <td><%= link_to public_customer_path(c.id) ,data: {"turbolinks" => false}, class: "btn btn-success" do%><%= c.name%><%end%></td>
+        <td>
+      <%end%>
+      
+    <%end%>
+    
+  </table>
+  
+</div>

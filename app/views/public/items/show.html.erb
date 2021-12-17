@@ -1,4 +1,4 @@
-<div class="mb-2 ">
+<div class="mt-4 mb-2 ">
     <center>
       <b>
       <%= form_with model: @item, url: admin_items_path, local:true do |f| %>
@@ -160,14 +160,14 @@
       <% @reviews.each do |review| %>
 
           <tr>
-            <th width="30%" class="p-3 mb-2 bg-light text-dark"><%= review.customer.name %>さんのレビュー</th>
+            <th width="30%" class="border border-warning"><%= review.customer.name %>さんのレビュー</th>
             <th>
               <div class="detail-value", id="star-comf-<%= review.id %>"></div>
             </th> <%# id要素の書き方がポイント %>
           </tr>
 
           <tr>
-            <td align="center"><%= review.name %></td>
+            <td align="center" class="border border-warning"><%= review.name %></td>
             <td><%= review.comment %></td>
           </tr>
 
