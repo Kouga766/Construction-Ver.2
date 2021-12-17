@@ -1,4 +1,4 @@
-<aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 rounded-right  bg-warning" id="sidenav-main">
+<aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 rounded-right bg-light" id="sidenav-main">
 
   <ul class="navbar-nav">
     <li class="nav-item">
@@ -18,10 +18,6 @@
         public_questions_path, data: {"turbolinks" => false}%>
     </li>
     <li class="nav-item">
-      <%= link_to image_tag("chat.png", class:"image_switch", width: '100%', height:'100%' ),
-        public_rooms_path, data: {"turbolinks" => false} %>
-    </li>
-    <li class="nav-item">
       <%= link_to image_tag("item.png", class:"image_switch", width: '100%', height:'100%' ), 
         public_items_path, data: {"turbolinks" => false}%>
     </li>
@@ -30,23 +26,12 @@
         public_about_path, data: {"turbolinks" => false}%>
     </li>
     <li class="nav-item">
-      <%= link_to image_tag("mypage.png", class:"image_switch", width: '100%', height:'100%' ), 
-        public_customer_mypage_path, data: {"turbolinks" => false}%>
+      <%= link_to image_tag("Shin.png", class:"image_switch", width: '100%', height:'100%' ), 
+        new_customer_registration_path, data: {"turbolinks" => false} %>
     </li>
     <li class="nav-item">
-      <%= link_to image_tag("logout.png", class:"image_switch", width: '100%', height:'100%' ), 
-        destroy_customer_session_path, method: :delete, data: {"turbolinks" => false}%>
-    </li>
-    
-    <br><br><br>
-    
-    <li class="nav-item btn btn-outline-dark">
-      <font color="white">
-        <a class="icon_image">
-        <%= attachment_image_tag(current_customer, :image, :size => '30x30', class: "user-icon") %>
-      </a>
-      <%= current_customer.name %>
-      </font>
+      <%= link_to image_tag("login.png", class:"image_switch", width: '100%', height:'100%' ), 
+        new_customer_session_path, data: {"turbolinks" => false} %>
     </li>
   </ul>
 </aside>

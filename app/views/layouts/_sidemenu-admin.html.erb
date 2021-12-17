@@ -1,0 +1,49 @@
+<aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 rounded-right bg-light" id="sidenav-main">
+
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <%= link_to root_path do %>
+      <%= image_tag"Rogo.png",:size => '250x120' %>
+      <% end %>
+    </li>
+    <li class="nav-item">
+      管理者メニュー
+    </li>
+    <br>
+    <li class="nav-item">
+      <%= link_to admin_customers_path, class: "side_menu__link" do %>
+        <button type="button" class="btn btn-outline-warning btn-lg">会員一覧</button>
+      <% end %>
+    </li>
+    <li class="nav-item">
+      <%= link_to public_calendars_path(current_customer), class: "side_menu__link",data: {"turbolinks" => false} do %>
+        <button type="button" class="btn btn-outline-warning btn-lg">新着カレンダー</button>
+      <% end %>
+    </li>
+    <li class="nav-item">
+      <%= link_to public_rooms_path, class: "side_menu__link" do %>
+        <button type="button" class="btn btn-outline-warning btn-lg">チャットボックス</button>
+      <% end %>
+    </li>
+    <li class="nav-item">
+      <%= link_to admin_items_path, class: "side_menu__link" do %>
+        <button type="button" class="btn btn-outline-warning btn-lg">プラモデル一覧</button>
+      <% end %>
+    </li>
+    <li class="nav-item">
+      <%= link_to admin_genres_path, class: "side_menu__link" do %>
+        <button type="button" class="btn btn-outline-warning btn-lg">ジャンル一覧</button>
+      <% end %>
+    </li>
+    <li class="nav-item">
+      <%= link_to public_about_path, class: "side_menu__link" do %>
+        <button type="button" class="btn btn-outline-warning btn-lg">プラモデル店</button>
+      <% end %>
+    </li>
+     <li class="nav-item">
+      <%= link_to destroy_admin_session_path, method: :delete, class: "side_menu__link" do %>
+        <button type="button" class="btn btn-outline-warning btn-lg">ログアウト</button>
+      <% end %>
+    </li>
+ </ul>
+</aside>
