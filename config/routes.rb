@@ -32,6 +32,7 @@ root to: 'public/homes#top'
      # CustomersController関連
     resources :customers, except: [:new, :create, :destroy]
     # /CustomersController関連
+    
   end
   #/adminのrouting
 
@@ -67,10 +68,13 @@ root to: 'public/homes#top'
     # calendarscontroller関連
 
     # CustomersController関連
-    resource :customers, only: [:show, :edit, :update]
-    get   "customers/cancel"   => "customers#cancel",   as: "customer_cancel"
-    patch "customers/cancel"   => "customers#withdraw", as: "customer_withdraw"
+    resources :customers, only: [:index, :show, :edit, :update]
+    get   "customers_mypage"   => "customers#mypage",   as: "customer_mypage"
+    get   "public/customers/cancel"   => "customers#cancel",   as: "customer_cancel"
+    patch "public/customers/cancel"   => "customers#withdraw", as: "customer_withdraw"
     # /CustomersController関連
+    
+    resources :rooms
 
   end
 end

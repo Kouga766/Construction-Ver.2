@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_28_111152) do
+ActiveRecord::Schema.define(version: 2021_12_16_122017) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email"
@@ -55,8 +55,25 @@ ActiveRecord::Schema.define(version: 2021_11_28_111152) do
     t.boolean "is_deleted", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "online"
+    t.string "image_id"
     t.index ["email"], name: "index_customers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
+  end
+
+  create_table "direct_messages", force: :cascade do |t|
+    t.string "content"
+    t.integer "customer_id"
+    t.integer "room_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "entries", force: :cascade do |t|
+    t.integer "customer_id"
+    t.integer "room_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "genres", force: :cascade do |t|
@@ -121,6 +138,12 @@ ActiveRecord::Schema.define(version: 2021_11_28_111152) do
     t.integer "customer_id"
     t.index ["customer_id"], name: "index_reviews_on_customer_id"
     t.index ["item_id"], name: "index_reviews_on_item_id"
+  end
+
+  create_table "rooms", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

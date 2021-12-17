@@ -4,7 +4,7 @@
   <% end %>
   <ul class="side_menu">
     <li class="side_menu__list">
-      <%= link_to public_customers_path(current_customer), class: "side_menu__link" do %>
+      <%= link_to public_customer_path(@Customer.id), class: "side_menu__link" do %>
         <span class="icon"><ion-icon name="person-outline"></ion-icon></span>
         <span class="title">マイページ</span>
       <% end %>
