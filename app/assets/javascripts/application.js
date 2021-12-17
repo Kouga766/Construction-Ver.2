@@ -11,12 +11,16 @@
 // about supported directives.
 //
 
-//= require jquery
-//= require popper
-//= require bootstrap-sprockets
-
-//= require rails-ujs
 //= require activestorage
 //= require turbolinks
+//= require jquery
 //= require jquery_ujs
-//= require_tree .
+//= require popper
+//= require jquery.raty.js
+
+//= require bootstrap
+//= require bootstrap-sprockets
+
+// ↓チャットを動作させるために必要
+//= require_tree . 
+// require_self

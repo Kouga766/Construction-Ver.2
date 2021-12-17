@@ -11,10 +11,22 @@
  * It is generally better to create a new file per style scope.
  *
  *= require_simple_calendar
- *= require_tree .
- *= require_self
  */
-@import "bootstrap";
+@import 'public/*';
+@import 'bootstrap';
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 
+
+.icon_image {
+  width: 200px;
+  height: 200px;
+  //サイズ指定
+  border-radius: 100px;
+  //画像を丸くする
+  object-fit: cover;
+  //タテヨコ比を変えないままトリミング
+}
+.user-icon{
+  border-radius: 50%;
+}
