@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
 
     <!-- Material Dashboard CSS -->
-    <link id="pagestyle" href="/assets_md/css/material-dashboard.css" rel="stylesheet" />
+    <link id="pagestyle" href="<%= asset_path('material-dashboard.css') %>" rel="stylesheet" />
 
   </head>
 
@@ -42,7 +42,7 @@
     </main>
 
     <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
-    <script src="/assets_md/js/material-dashboard.min.js"></script>
+    <script src="<%= asset_path('material-dashboard.min.js') %>"></script>
 
     <!-- Chart.min.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
