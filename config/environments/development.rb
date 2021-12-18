@@ -60,6 +60,4 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
-  config.action_cable.allowed_request_origins = [ 'https://b40a9c3ed6c142ab9c920d7f391f5cd5.vfs.cloud9.ap-northeast-1.amazonaws.com' ]
-
 end
