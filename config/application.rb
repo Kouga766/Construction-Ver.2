@@ -23,5 +23,11 @@ module Construction
     config.i18n.default_locale = :ja
     config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
 
+    Rails.application.config.assets.paths << Rails.root.join('vendor', 'fonts')
+    Rails.application.config.assets.paths << Rails.root.join('vendor', 'images')
+    Rails.application.config.assets.paths << Rails.root.join('vendor', 'javascripts')
+    Rails.application.config.assets.paths << Rails.root.join('vendor', 'stylesheets')
+    Rails.application.config.assets.precompile += %w(*.eot *.woff *.woff2 *.ttf *.svg *.otf *.png *.jpg *.gif )
+
   end
 end
