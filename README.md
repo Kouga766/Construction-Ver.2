@@ -1,4 +1,5 @@
 ![site-logo](https://github.com/Kouga766/Construction-Ver.2/blob/main/app/assets/images/Rogo.png)
+ ![アセット 1](https://github.com/Kouga766/Construction-Ver.2/blob/main/app/assets/images/demo.png)
 
 # プラモデル情報サイト-コンストラクション-Ver.2
 
@@ -26,11 +27,19 @@
 プラモデルの評価がどうなってるか見たい時
 
 ## 機能一覧
+###ユーザー側
 ・新着カレンダー　　  ← Renewal!<br>
 ・質問箱<br>
 ・プラモデル一覧<br>
 ・プラモデル取扱店<br>
 ・チャット機能　　　　← new!
+
+###管理者側
+・会員一覧<br>
+・新着カレンダー<br>
+・プラモデル一覧・作成<br>
+・ジャンル一覧・作成<br>
+・プラモデル取扱店
 
 ### Ver.2からの新機能
 ・チャット機能の追加<br>
