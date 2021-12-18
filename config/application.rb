@@ -29,5 +29,7 @@ module Construction
     Rails.application.config.assets.paths << Rails.root.join('vendor', 'stylesheets')
     Rails.application.config.assets.precompile += %w(*.eot *.woff *.woff2 *.ttf *.svg *.otf *.png *.jpg *.gif )
 
+    config.action_cable.mount_path = '/cable'
+
   end
 end
