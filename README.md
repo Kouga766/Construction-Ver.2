@@ -1,6 +1,7 @@
 ![site-logo](https://github.com/Kouga766/Construction-Ver.2/blob/main/app/assets/images/Rogo.png)
  ![アセット 1](https://github.com/Kouga766/Construction-Ver.2/blob/main/app/assets/images/demo.png)
 
+
 # プラモデル情報サイト-コンストラクション-Ver.2
 
 ## サイト概要
