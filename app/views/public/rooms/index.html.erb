@@ -1,5 +1,5 @@
     <h2>メッセージ一覧</h2>
-    
+
         <table class="table">
             <thead>
                 <tr>
@@ -13,7 +13,7 @@
                 <% @anotherEntries.each do |e| %>
                 <tr>
                     <td class="text-center" width="25%">
-                        <%= link_to public_room_path(e.room.id) do %>
+                        <%= link_to public_room_path(e.room.id), class: "btn btn-info"  do %>
                             <%= e.customer.name %>
                         <% end %>
                     </td>
@@ -42,5 +42,5 @@
                 <% end %>
             </tbody>
         </table>
-    
+
     <%= link_to public_customers_path,data: {"turbolinks" => false}, class: "btn btn-success" do%>相手を選ぶ<% end %>
