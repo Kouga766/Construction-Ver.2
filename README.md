@@ -53,7 +53,7 @@
 　カレンダーをより見やすく更新いたしました。
 
 ## 開発環境
-- OS：windws10
+- OS：windows10
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
 - フレームワーク：Ruby on Rails
 - JSライブラリ：jQuery
